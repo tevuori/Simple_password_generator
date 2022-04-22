@@ -9,19 +9,24 @@ public class Main {
             String characters[] = chars.split("");
             String password = "";
             Scanner scanner = new Scanner(System.in);
-            System.out.println("How many characters should the password have?");
+            System.out.println(ANSI_GREEN + "How many characters should the password have?" + ANSI_RESET);
             int number = scanner.nextInt();
             for (int i = number;i!=0;--i){
                 Random random = new Random();
                int randint = random.nextInt(87);
-               password = password + characters[randint-1];
+               password = password + characters[randint];
          }
-            System.out.println(password);
-            System.out.println("Do you want to generate another password? (Yes/No)");
+            System.out.println(ANSI_BLUE + password+ ANSI_RESET);
+            System.out.println(ANSI_PURPLE + "Do you want to generate another password? (Yes/No)"+ ANSI_RESET);
             String option = scanner.next();
             if(option.contains("No")){
                 close = true;
             }
         }
     }
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+
 }
